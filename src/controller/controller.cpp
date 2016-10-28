@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 void controller_start()
 {
 	int c; //Used to store user's choice from view_xxx
