@@ -1,5 +1,5 @@
 # MVC-Jobs
 
-Per compilare: ./compile
+To compile: ./compile
 
-Per eseguire: ./Jobs (dopo aver compilato)
+To execute: ./Jobs (after compiling)
