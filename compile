@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -f Jobs
+g++ src/main.cpp src/model/model.cpp src/view/view.cpp src/controller/controller.cpp -o Jobs
+#g++ lo rende eseguibile automaticamente
