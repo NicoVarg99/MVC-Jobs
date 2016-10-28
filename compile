@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -f Jobs
+g++ src/main.cpp -o Jobs
+chmod +x Jobs
