@@ -3,11 +3,11 @@
 #define DEBUG 1
 #define LINEA "-------------------------------------------------------------------------------\n\n"
 #ifdef __linux__
-    #define clearscreen system("clear");
+    #define CLEAR system("clear");
     #include "conio.cpp"
 #elif _WIN32
     #include <conio.h>
-    #define clearscreen system("CLS");
+    #define CLEAR system("CLS");
 #endif
 
 void controller_start();
@@ -106,7 +106,7 @@ int mainmenu(){
         if(c==13) return s;
         if(s==7) s=1;
         if(s==0) s=6;
-        clearscreen;
+        CLEAR;
         //printf("%d",c);
         continue;
     }
