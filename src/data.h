@@ -7,7 +7,13 @@ struct Job{
 struct Student{
 	char firstName[50];
 	char lastName[50];
-	int isBusy;
+
+	int jobStatus;
+		//0 - No job assigned
+		//10 - Job assigned
+		//20 - Job started
+		//30 - Job completed
+
 	int jobsNum;
 	struct Job *job;
 };
