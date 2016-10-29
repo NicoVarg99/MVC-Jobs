@@ -1,5 +1,12 @@
 #include "model.h"
 
+#include <string>
+#include <fstream>
+
+#include <iostream> //provvisorio
+
+using namespace std;
+
 //check if file exists
 //if exists
 				//list all students with their current job
@@ -15,6 +22,37 @@
 				//view_error("Data file not found.");
 
 
-int model_listStudents(){
-	
+struct Student * model_loadStudents(){
+
+    string fileName = "data";
+    fileName+=SLASH;
+    fileName+="students.bin";
+    streampos begin,end;
+    //ofstream file(fileName.c_str(), ios::out | ios::binary);
+    ifstream file(fileName.c_str(), ios::in | ios::binary);
+    if(file.is_open())
+    {
+        begin=file.tellg();
+        file.seekg(0,ios::end);
+        end=file.tellg();
+        int n=5;
+        //file.write((char*)&n,sizeof(int));
+        //if(DEBUG) cout << "Writed" << endl;
+        file.read((char*)&n,sizeof(int));
+        if(DEBUG) cout << "readed" << endl;
+        if(DEBUG) cout << "Number of students:  " << n << endl;
+        struct Student * students;
+        students = new struct Student [n];
+        for(int i=0;i<n;i++)
+        {
+            file.read((char*)&students[i],sizeof(struct Student));
+        }
+        return students;
+    }
+    else
+    {
+        if(DEBUG)
+            cout << "Unable to open file:  " << fileName << endl;
+        return NULL;
+    }
 }

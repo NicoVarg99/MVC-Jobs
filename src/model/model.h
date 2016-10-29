@@ -2,6 +2,6 @@
 
 using namespace std;
 
-int model_listStudents();
+struct Student * model_loadStudents();
 
 #endif
