@@ -21,7 +21,6 @@ bool model_checkDB(){
 }
 
 bool model_createDB(){
-	
 	return model_checkDB();
 }
 
