@@ -3,8 +3,8 @@
 void controller_start()
 {
 	//Create database if not exists
-	//if(!model_checkDB)
-	//	model_createDB();
+	if(!model_checkDB)
+		model_createDB();
 	
 	int c;
 	

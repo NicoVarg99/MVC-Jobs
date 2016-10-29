@@ -16,12 +16,13 @@ bool model_checkFile (const std::string& name) {
     }   
 }
 
-int model_checkDB(){
+bool model_checkDB(){
 	return model_checkFile("data/database.bin");
 }
 
-int model_createDB(){
-	return 0;
+bool model_createDB(){
+	
+	return model_checkDB();
 }
 
 //check if file exists

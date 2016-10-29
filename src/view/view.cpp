@@ -15,7 +15,8 @@ int mainmenu();
 void printError(int e);
 void printDebug(char* dastampare);
 
-void controller_start()
+//TODO MIRCO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+void controller_start_WRONGNAME()
 {
     int c; //variable used for storing the user's choice once mainmenu has completed its function.
     c=mainmenu(); //gets c's value from mainmenu.
