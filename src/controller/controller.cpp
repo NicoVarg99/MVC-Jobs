@@ -6,6 +6,8 @@ void controller_start()
 	//if(!model_checkDB)
 	//	model_createDB();
 	
+	int c;
+	
 	//main loop
 	while(1){
 

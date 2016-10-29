@@ -20,7 +20,7 @@ using namespace std;
 //if not
 				//print an error message
 				//view_error("Data file not found.");
-
+/*
 
 struct Student * model_loadStudents(){
 
@@ -56,3 +56,5 @@ struct Student * model_loadStudents(){
         return NULL;
     }
 }
+
+*/
