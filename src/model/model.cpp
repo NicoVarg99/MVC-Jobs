@@ -7,11 +7,11 @@
 
 using namespace std;
 
-bool model_checkFile (const std::string& name) {
-    if (FILE *file = fopen(name.c_str(), "r")) {
+bool model_checkFile (const std::string& name){
+    if (FILE *file = fopen(name.c_str(), "r")){
         fclose(file);
         return true;
-    } else {
+    }else{
         return false;
     }   
 }
