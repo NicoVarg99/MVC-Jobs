@@ -7,6 +7,14 @@
 
 using namespace std;
 
+int model_checkDB(){
+	return 0;
+}
+
+int model_createDB(){
+	return 0;
+}
+
 //check if file exists
 //if exists
 				//list all students with their current job
