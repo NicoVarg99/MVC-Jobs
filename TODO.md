@@ -1,9 +1,9 @@
 # TODO
 
 Mirco:
- - <strike><b>Create main menu as described in src/controller/controller.cpp</strike>
+ - <strike><i>Create main menu as described in src/controller/controller.cpp</strike>
  - <strike>Create error printing function as described in src/controller/controller.cpp</strike>
- - <strike>Create debug printing function (eg. view_printDebug()) (see example in src/model/model.cpp). Make sure it prints only "if(DEBUG)"</b></strike>
+ - <strike>Create debug printing function (eg. view_printDebug()) (see example in src/model/model.cpp). Make sure it prints only "if(DEBUG)"</i></strike>
 
 
 Carlo:
