@@ -42,7 +42,7 @@ struct Student * model_loadStudents(){
         if(DEBUG) cout << "readed" << endl;
         if(DEBUG) cout << "Number of students:  " << n << endl;
         struct Student * students;
-        students = new struct Student [n];
+        students = new Student [n];
         for(int i=0;i<n;i++)
         {
             file.read((char*)&students[i],sizeof(struct Student));
