@@ -1,11 +1,12 @@
 #include <cstdio>
 #include <cstdlib>
-#include <conio.h>
 #define DEBUG 1
 #define LINEA "-------------------------------------------------------------------------------\n\n"
 #ifdef __linux__
     #define clearscreen system("clear");
+    #include "conio.cpp"
 #elif _WIN32
+    #include <conio.h>
     #define clearscreen system("CLS");
 #endif
 
