@@ -19,7 +19,6 @@ int getch(void)
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 
 	return ch;
-}
 
-return 0;
+
 }

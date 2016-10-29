@@ -79,7 +79,7 @@ int mainmenu(){
         printf(LINEA"\t\t\t\tMVC - Jobs");
         //printDebug("Hello!");
         //printError(3);
-        printf("\n\n"LINEA);
+        printf("\n\n" LINEA);
         printf("Si scelga l'azione da compiere:\n\n");
         if(s==1) printf("<1>");
         else printf(" 1 ");
