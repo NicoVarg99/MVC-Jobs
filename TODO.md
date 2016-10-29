@@ -3,7 +3,7 @@
 Mirco:
  - <strike>Create main menu as described in src/controller/controller.cpp
  - <strike>Create error printing function as described in src/controller/controller.cpp
- - <strike>Create debug printing function (eg. view_printDebug()) (see example in src/model/model.cpp). Make sure it prints only "if(DEBUG)"</strike>
+ - <strike>Create debug printing function (eg. view_printDebug()) (see example in src/model/model.cpp). Make sure it prints only "if(DEBUG)"<strike>
 
 
 Carlo:
