@@ -8,5 +8,6 @@ struct Student{
 	char firstName[50];
 	char lastName[50];
 	int isBusy;
+	int jobsNum;
 	struct Job job;
 };
