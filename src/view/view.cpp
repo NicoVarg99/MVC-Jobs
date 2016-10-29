@@ -108,7 +108,7 @@ int mainmenu(){
         if(s==0) s=6;
         clearscreen;
         //printf("%d",c);
-        if(c!=114 && c!=120) continue;
+        continue;
     }
 }
 
