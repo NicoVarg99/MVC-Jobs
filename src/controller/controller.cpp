@@ -2,8 +2,6 @@
 
 void controller_start()
 {
-	int c; //Used to store user's choice from view_xxx
-
 	//main loop
 	while(1){
 
