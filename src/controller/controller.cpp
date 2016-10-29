@@ -2,6 +2,10 @@
 
 void controller_start()
 {
+	//Create database if not exists
+	//if(!model_checkDB)
+	//	model_createDB();
+	
 	//main loop
 	while(1){
 
@@ -27,6 +31,11 @@ void controller_start()
 				
 				//check if file exists
 				//if exists
+				//if(!model_checkDB)
+				//{}
+				//else
+				//{}
+				//
 						//list all students with their current job
 						//
 						//while(model_isDataAvailable){
