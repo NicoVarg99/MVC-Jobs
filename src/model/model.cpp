@@ -7,8 +7,17 @@
 
 using namespace std;
 
+bool model_checkFile (const std::string& name) {
+    if (FILE *file = fopen(name.c_str(), "r")) {
+        fclose(file);
+        return true;
+    } else {
+        return false;
+    }   
+}
+
 int model_checkDB(){
-	return 0;
+	return model_checkFile("data/database.bin");
 }
 
 int model_createDB(){
