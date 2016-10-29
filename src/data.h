@@ -9,5 +9,5 @@ struct Student{
 	char lastName[50];
 	int isBusy;
 	int jobsNum;
-	struct Job job;
+	struct Job *job;
 };
