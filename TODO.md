@@ -7,6 +7,7 @@ Mirco:
  - All functions which are member of View must start with "view_"
  - Migrate from clear to escape sequence approach
  - Divide the file view.cpp into view.h and view.cpp
+ - Function "bool printStudentsList(struct Student * students) that prints the list of all the students and their jobs"
 
 
 Carlo:

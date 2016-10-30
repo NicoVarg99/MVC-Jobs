@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <string>
 
 #define LINEA "-------------------------------------------------------------------------------\n\n"
 #ifdef __linux__
@@ -22,10 +23,9 @@ void controller_start();
 int mainmenu();
 void printError(int e);
 void printMsg(char *topr);
-void printDebug(char* dastampare);
 
-void view_printError(char *topr){
-	printf("ERROR: %s\n",topr);
+void view_printError(const std::string topr){
+	printf("ERROR: %s\n",topr.c_str());
 }
 
 void view_printMsg(char *topr){
@@ -65,16 +65,16 @@ int view_mainMenu(){
         if(c==KEY_S||c==KEY_DOWN||c==83) s++;
         if(c==KEY_W||c==KEY_UP||c==83) s--;
         if(c==13||c==KEY_ENTER)return s;
-        
+
         //Loop through the menu
         if(s==7) s=1;
         if(s==0) s=6;
-        
+
         system(CLEAR);
-        
+
         if(DEBUG)
 		printf("%d\n",c);
-			
+
         continue;
     }
 }
@@ -100,6 +100,6 @@ void printError(int e){
     //The proper input number.
 }
 
-void printDebug(char* dastampare){
-printf("Debug: %s\n",dastampare);
+void view_printDebug(const std::string dastampare){
+printf("Debug: %s\n",dastampare.c_str());
 }
