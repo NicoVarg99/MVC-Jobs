@@ -7,7 +7,7 @@ Mirco:
  - <strike>All functions which are member of View must start with "view_"</strike>
  - <strike>Divide the file view.cpp into view.h and view.cpp</strike>
  - Function "bool view_printStudentsList(struct Student * students) that prints the list of all the students and their jobs"
- - Function "struct Student view_loadStudent()" that ask the user to insert the values (the number of the jobs and the jobs values too), you can fine a primitive version of it in "src/model/temp.cpp":62-80.
+ - Function "struct Student view_loadStudent()" that asks the user to insert the values (the number of the jobs and the jobs values too), you can fine a primitive version of it in "src/model/temp.cpp":62-80.
  - <strike>Function "void view_printWaitMessage()" that for now is just printf("Press [ENTER] to continue...");</strike>
 
 
