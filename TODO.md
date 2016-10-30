@@ -4,9 +4,9 @@ Mirco:
  - <strike><i>Create main menu as described in src/controller/controller.cpp
  - Create error printing function as described in src/controller/controller.cpp
  - Create debug printing function (eg. view_printDebug()) (see example in src/model/model.cpp). Make sure it prints only "if(DEBUG)"</i></strike>
- - All functions which are member of View must start with "view_"
+ - <strike>All functions which are member of View must start with "view_"</strike>
  - Migrate from clear to escape sequence approach
- - Divide the file view.cpp into view.h and view.cpp
+ - <strike>Divide the file view.cpp into view.h and view.cpp</strike>
  - Function "bool view_printStudentsList(struct Student * students) that prints the list of all the students and their jobs"
  - Function "struct Student view_loadStudent()" that ask the user to insert the values (the number of the jobs and the jobs values too), you can fine a primitive version of it in "src/model/temp.cpp":62-80.
  - Function "void view_printWaitMessage()" that for now is just printf("Press [ENTER] to continue...");
