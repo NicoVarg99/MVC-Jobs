@@ -7,6 +7,23 @@
 
 using namespace std;
 
+bool model_checkFile (const std::string& name){
+    if (FILE *file = fopen(name.c_str(), "r")){
+        fclose(file);
+        return true;
+    }else{
+        return false;
+    }   
+}
+
+bool model_checkDB(){
+	return model_checkFile("data/database.bin");
+}
+
+bool model_createDB(){
+	return model_checkDB();
+}
+
 //check if file exists
 //if exists
 				//list all students with their current job
@@ -20,7 +37,7 @@ using namespace std;
 //if not
 				//print an error message
 				//view_error("Data file not found.");
-
+/*
 
 struct Student * model_loadStudents(){
 
@@ -56,3 +73,5 @@ struct Student * model_loadStudents(){
         return NULL;
     }
 }
+
+*/
