@@ -1,7 +1,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <string>
+#include "view.h"
 
+#define DEBUG 1
 #define LINEA "-------------------------------------------------------------------------------\n\n"
 #ifdef __linux__
     #define CLEAR "clear"
@@ -13,31 +15,31 @@
 
 //Keys definitions
 #define KEY_W		119
+#define KEY_CW      87
 #define KEY_S		115
-#define KEY_UP		65
-#define KEY_DOWN	66
-#define KEY_ENTER	10
+#define KEY_CS		83
+#define KEY_LINUX_UP		65
+#define KEY_LINUX_DOWN	    66
+#define KEY_WINDOWS_UP		80
+#define KEY_WINDOWS_DOWN	72
+#define KEY_LINUX_ENTER	    10
+#define KEY_WINDOWS_ENTER   13
 
-
-void controller_start();
-int mainmenu();
-void printError(int e);
-void printMsg(char *topr);
-
-void view_printError(const std::string topr){
+void view::view_printError(const std::string topr){
 	printf("ERROR: %s\n",topr.c_str());
 }
 
-void view_printMsg(char *topr){
+void view::view_printMsg(char *topr){
 	printf("%s\n",topr);
 }
 
-int view_mainMenu(){
+int view::view_mainMenu(){
 	int c=1,s=1; //c now takes the first key input from buffer, avoiding the trouble of having the
 	// user press enter. s is the variable used to show the current selection to the user.
 
 	while(1){
         system(CLEAR);
+        if(DEBUG) printf("%d\n",c);
         printf(LINEA "\t\t\t\tMVC - Jobs");
         //printDebug("Hello!");
         //printError(3);
@@ -63,42 +65,30 @@ int view_mainMenu(){
         printf(" - Termina il programma;\n");
         printf("\n\t\t     [TASTI W-S PER SCEGLIERE L'OPZIONE]\n\n");
         c=getch();
-        if(c==KEY_S||c==KEY_DOWN||c==83) s++;
-        if(c==KEY_W||c==KEY_UP||c==83) s--;
-        if(c==13||c==KEY_ENTER)return s;
+        if(c==KEY_S||c==KEY_LINUX_DOWN||c==KEY_CS||c==KEY_WINDOWS_UP) s++;
+        if(c==KEY_W||c==KEY_LINUX_UP||c==KEY_CW||c==KEY_WINDOWS_DOWN) s--;
+        if(c==KEY_WINDOWS_ENTER||c==KEY_LINUX_ENTER)return s;
 
         //Loop through the menu
         if(s==7) s=1;
         if(s==0) s=6;
 
-        if(DEBUG)
-		printf("%d\n",c);
-
         continue;
     }
 }
 
-void printError(int e){
-
-    switch (e){
-
-    case 1:
-        printf("ERRORE: Esempio di errore.");
-        break;
-
-    case 2:
-        printf("ERRORE: Altro Esempio di errore.");
-        break;
-
-    case 3:
-        printf("ERRORE: E' FINITO IL CAFFE'! MORIREMO TUTTIIII!!!");
-        break;
-    }
-
-    //All of the potential errors will be stored here. When you need to print out an error, simply call the print error function with
-    //The proper input number.
+void view::view_printDebug(const std::string dastampare){
+printf("Debug: %s\n",dastampare.c_str());
 }
 
-void view_printDebug(const std::string dastampare){
-printf("Debug: %s\n",dastampare.c_str());
+void view::wiew_printWaitMessage(){
+
+    int i;
+    printf("\nPress [ENTER] to continue...\n\n");
+    while(1)
+    {
+        i=getch();
+        if (i==KEY_LINUX_ENTER||i==KEY_WINDOWS_ENTER) break;
+    }
+    return;
 }
