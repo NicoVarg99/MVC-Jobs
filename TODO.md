@@ -8,6 +8,7 @@ Mirco:
  - Migrate from clear to escape sequence approach
  - Divide the file view.cpp into view.h and view.cpp
  - Function "bool printStudentsList(struct Student * students) that prints the list of all the students and their jobs"
+ - Function "void printWaitMessage()" that for now is just printf("Press [ENTER] to continue...");
 
 
 Carlo:

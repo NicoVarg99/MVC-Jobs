@@ -55,6 +55,8 @@ void controller_start()
 					//view_printStudentList(students);
 					view_printDebug("List of the students and their jobs");
 				}
+				view_printDebug("Press [ENTER] to continue...\n");
+				WAIT;
 				break;
 			}
 			case 2:

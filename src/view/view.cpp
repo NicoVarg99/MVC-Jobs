@@ -37,6 +37,7 @@ int view_mainMenu(){
 	// user press enter. s is the variable used to show the current selection to the user.
 
 	while(1){
+        system(CLEAR);
         printf(LINEA "\t\t\t\tMVC - Jobs");
         //printDebug("Hello!");
         //printError(3);
@@ -69,8 +70,6 @@ int view_mainMenu(){
         //Loop through the menu
         if(s==7) s=1;
         if(s==0) s=6;
-
-        system(CLEAR);
 
         if(DEBUG)
 		printf("%d\n",c);

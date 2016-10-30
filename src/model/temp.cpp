@@ -59,33 +59,38 @@ bool model_createDB(){
 }
 
 int main(){
-    if(!model_checkDB()){ // se il file non esiste o non riesce ad aprirlo
-        model_createDB();
-        return NULL;
-    }
-    string fileName = "data";
+	int numberOfStudents=3;
+	struct Student *students = new Student[numberOfStudents];
+	for(int i=0;i<numberOfStudents;i++){
+		cout << "Student " << i << endl << "FirstName:  ";
+		cin >> students[i].firstName;
+		cout << "lastName:  ";
+		cin >> students[i].lastName;
+		cout << "JobsNum:  ";
+		cin >> students[i].jobsNum;
+		students[i].job=new Job[students[i].jobsNum];
+		for(int j=0;j<students[i].jobsNum;j++){
+			cout << "Job " << j << endl << "Name:  ";
+			cin >> students[i].job[j].name;
+			cout << "Desc:  ";
+			cin >> students[i].job[j].desc;
+			cout << "Job status:  ";
+			cin >> students[i].job[j].jobStatus;
+		}
+	}
+    if(!model_createDB())
+        return false;
+    string fileName="data";
     fileName+=SLASH;
     fileName+="database.bin";
-    ifstream file(fileName.c_str(), ios::in | ios::binary);
-    if(file.is_open())
-    {
-        int n;
-        file.read((char*)&n,sizeof(int));
-        if(DEBUG) cout << "readed" << endl;
-        if(DEBUG) cout << "Number of students:  " << n << endl;
-        Student * students;
-        students = new Student [n];
-        for(int i=0;i<n;i++)
-        {
-            file.read((char*)&students[i],sizeof(struct Student));
+    ofstream file (fileName.c_str(), ios::binary | ios::out);
+    file.write((char*)&numberOfStudents,sizeof(int));
+    for(int i=0;i<numberOfStudents;i++){
+        file.write((char*)&students[i],sizeof(Student));
+        for(int j=0;j<students[i].jobsNum;j++){
+            file.write((char*)&students[i].job[j],sizeof(Job));
         }
-        return students;
     }
-    else
-    {
-        if(DEBUG)
-            cout << "Unable to open file:  " << fileName << endl;
-        return NULL;
-    }
-    return 42;
+    file.close();
+    return true;
 }

@@ -6,6 +6,8 @@
 
 #define DEBUG 1
 
+#define WAIT getchar()
+
 #include "data.h"
 
 #include "model/model.h"
