@@ -3,11 +3,11 @@
 
 #define LINEA "-------------------------------------------------------------------------------\n\n"
 #ifdef __linux__
-    #define CLEAR "clear";
+    #define CLEAR "clear"
     #include "conio.cpp"
 #elif _WIN32
     #include <conio.h>
-    #define CLEAR "CLS";
+    #define CLEAR "CLS"
 #endif
 
 //Keys definitions
@@ -70,7 +70,7 @@ int view_mainMenu(){
         if(s==7) s=1;
         if(s==0) s=6;
         
-        printf(CLEAR);;
+        system(CLEAR);
         
         if(DEBUG)
 		printf("%d\n",c);
