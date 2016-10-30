@@ -8,20 +8,36 @@
 using namespace std;
 
 bool model_checkFile (const std::string& name){
-    if (FILE *file = fopen(name.c_str(), "r")){
-        fclose(file);
+    ifstream myfile (name.c_str(), ios::binary | ios::in);
+    if (myfile.is_open()){
+        myfile.close();
         return true;
-    }else{
-        return false;
-    }   
+    }
+    return false;
 }
 
 bool model_checkDB(){
-	return model_checkFile("data/database.bin");
+    string name="data";
+    name+=SLASH;
+    name+="database.bin";
+	return model_checkFile(name);
 }
 
 bool model_createDB(){
-	return model_checkDB();
+    if(!model_checkDB()){
+        string name="data";
+        name+=SLASH;
+        name+="database.bin";
+        ofstream myfile (name.c_str(), ios::binary | ios::out);
+        if(myfile.is_open()){
+            int n=0;
+            myfile.write((char *)&n, sizeof(int)); // setto il numero di studenti a 0
+            myfile.close();
+            return true;
+        }
+        return false;
+    }
+    return true;
 }
 
 //check if file exists
@@ -37,32 +53,32 @@ bool model_createDB(){
 //if not
 				//print an error message
 				//view_error("Data file not found.");
-/*
 
 struct Student * model_loadStudents(){
-
+    if(!model_checkDB()){ // se il file non esiste o non riesce ad aprirlo
+        model_createDB();
+        return NULL;
+    }
     string fileName = "data";
     fileName+=SLASH;
-    fileName+="students.bin";
-    streampos begin,end;
-    //ofstream file(fileName.c_str(), ios::out | ios::binary);
+    fileName+="database.bin";
     ifstream file(fileName.c_str(), ios::in | ios::binary);
     if(file.is_open())
     {
-        begin=file.tellg();
-        file.seekg(0,ios::end);
-        end=file.tellg();
-        int n=5;
-        //file.write((char*)&n,sizeof(int));
-        //if(DEBUG) cout << "Writed" << endl;
+        int n;
         file.read((char*)&n,sizeof(int));
         if(DEBUG) cout << "readed" << endl;
         if(DEBUG) cout << "Number of students:  " << n << endl;
-        struct Student * students;
+        Student * students;
         students = new Student [n];
         for(int i=0;i<n;i++)
         {
             file.read((char*)&students[i],sizeof(struct Student));
+            students[i].job=new Job [students[i].jobsNum];
+            for(int j=0; j<students[i].jobsNum; j++)
+            {
+                file.read((char*)&students[i].job[j],sizeof(struct Job));
+            }
         }
         return students;
     }
@@ -72,6 +88,24 @@ struct Student * model_loadStudents(){
             cout << "Unable to open file:  " << fileName << endl;
         return NULL;
     }
+    file.close();
 }
 
-*/
+bool model_writeStdents(struct Student *students, int numberOfStudents)
+{
+    if(!model_createDB())
+        return false;
+    string fileName="data";
+    fileName+=SLASH;
+    fileName+="database.bin";
+    ofstream file (fileName.c_str(), ios::binary | ios::out);
+    file.write((char*)&numberOfStudents,sizeof(int));
+    for(int i=0;i<numberOfStudents;i++){
+        file.write((char*)&students[i],sizeof(Student));
+        for(int j=0;j<students[i].jobsNum;j++){
+            file.write((char*)&students[i].job[j],sizeof(Job));
+        }
+    }
+    file.close();
+    return true;
+}
