@@ -123,3 +123,18 @@ bool model_addStudent(struct Student student){
     view_printDebug("Errore nell'aggiunta");
     return false;
 }
+
+bool model_removeStudent(int numberOfTheStudent){
+    int n=model_countStudents();
+    if(n==-1) return false;
+    Student *students = model_loadStudents();
+    if(students==NULL) return false;
+    n--;
+    for(int i=numberOfTheStudent;i<n;i++)
+        students[i]=students[i+1];
+    if(model_writeStdents(students,n)){
+        view_printDebug("Studente eliminato correttamente");
+        return true;
+    }
+    return false;
+}

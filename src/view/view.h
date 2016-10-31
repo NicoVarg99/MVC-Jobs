@@ -6,6 +6,7 @@
     void view_printDebug(const std::string dastampare);
     void view_printMsg(char *topr);
     void view_printWaitMessage();
+    bool model_removeStudent(int numberOfTheStudent)
 
 
 #endif // VIEW_H_INCLUDED
