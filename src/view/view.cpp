@@ -26,6 +26,10 @@
 #define KEY_LINUX_ESCAPE	27
 #define KEY_LINUX_Q		113
 
+void view_clearScr(){
+	system(CLEAR);
+}
+
 void view_printError(const std::string topr){
 	printf("ERROR: %s\n",topr.c_str());
 }

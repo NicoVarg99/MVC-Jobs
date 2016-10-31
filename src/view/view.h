@@ -6,6 +6,6 @@
     void view_printDebug(const std::string dastampare);
     void view_printMsg(char *topr);
     void view_printWaitMessage();
-
+	void view_clearScr();
 
 #endif // VIEW_H_INCLUDED

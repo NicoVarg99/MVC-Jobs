@@ -48,35 +48,52 @@ void controller_start()
 			//List all the students with their current job
 			case 1:
 			{
+				view_clearScr();
+
 				struct Student * students = model_loadStudents();
-				if(students==NULL)
+				if(students==NULL){
 					view_printError("Unable to open database");
-				else{
+				}else{
 					//view_printStudentList(students);
-					view_printDebug("List of the students and their jobs");
+					view_printDebug("List of the students and their jobs:");
+
 				}
 				view_printDebug("Press [ENTER] to continue...\n");
 				WAIT;
 				break;
 			}
 			case 2:
+			{
+				view_clearScr();
+				WAIT;
 				break;
-
+			}
 			case 3:
+			{
+				view_clearScr();
+				WAIT;
 				break;
-
+			}
 			case 4:
+			{
+				view_clearScr();
+				WAIT;
 				break;
-
+			}
 			case 5:
+			{	
+				view_clearScr();
+				WAIT;
 				break;
-
+			}
 
 			//quit
 			case 6:
+			{	
+				view_clearScr();
 				exit(0);
 				break;
-
+			}
 			default:
 				//TODO MIRCO
 				//print an error message
