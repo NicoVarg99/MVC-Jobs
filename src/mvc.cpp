@@ -4,7 +4,7 @@
     #define SLASH "/"
 #endif // _WIN32
 
-#define DEBUG 1
+#define DEBUG 0
 
 #define WAIT getchar()
 

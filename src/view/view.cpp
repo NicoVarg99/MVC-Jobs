@@ -3,7 +3,6 @@
 #include <string>
 #include "view.h"
 
-#define DEBUG 1
 #define LINEA "-------------------------------------------------------------------------------\n\n"
 #ifdef __linux__
     #define CLEAR "clear"
