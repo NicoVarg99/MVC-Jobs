@@ -24,23 +24,27 @@
 #define KEY_WINDOWS_DOWN	72
 #define KEY_LINUX_ENTER	    10
 #define KEY_WINDOWS_ENTER   13
+#define KEY_LINUX_ESCAPE	27
+#define KEY_LINUX_Q		113
 
-void view::view_printError(const std::string topr){
+void view_printError(const std::string topr){
 	printf("ERROR: %s\n",topr.c_str());
 }
 
-void view::view_printMsg(char *topr){
+void view_printMsg(char *topr){
 	printf("%s\n",topr);
 }
 
-int view::view_mainMenu(){
+int view_mainMenu(){
 	int c=1,s=1; //c now takes the first key input from buffer, avoiding the trouble of having the
 	// user press enter. s is the variable used to show the current selection to the user.
 
 	while(1){
         system(CLEAR);
-        if(DEBUG) printf("%d\n",c);
-        printf(LINEA "\t\t\t\tMVC - Jobs");
+        
+	if(DEBUG) printf("%d\n",c);
+        
+	printf(LINEA "\t\t\t\tMVC - Jobs");
         //printDebug("Hello!");
         //printError(3);
         printf("\n\n" LINEA);
@@ -65,11 +69,15 @@ int view::view_mainMenu(){
         printf(" - Termina il programma;\n");
         printf("\n\t\t     [TASTI W-S PER SCEGLIERE L'OPZIONE]\n\n");
         c=getch();
+
+	if(DEBUG) printf("%d\n",c);
+
         if(c==KEY_S||c==KEY_LINUX_DOWN||c==KEY_CS||c==KEY_WINDOWS_UP) s++;
         if(c==KEY_W||c==KEY_LINUX_UP||c==KEY_CW||c==KEY_WINDOWS_DOWN) s--;
         if(c==KEY_WINDOWS_ENTER||c==KEY_LINUX_ENTER)return s;
-
-        //Loop through the menu
+	if(c==KEY_LINUX_Q)return 6;
+        
+	//Loop through the menu
         if(s==7) s=1;
         if(s==0) s=6;
 
@@ -77,11 +85,11 @@ int view::view_mainMenu(){
     }
 }
 
-void view::view_printDebug(const std::string dastampare){
+void view_printDebug(const std::string dastampare){
 printf("Debug: %s\n",dastampare.c_str());
 }
 
-void view::wiew_printWaitMessage(){
+void view_printWaitMessage(){
 
     int i;
     printf("\nPress [ENTER] to continue...\n\n");
