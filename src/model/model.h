@@ -12,5 +12,7 @@ bool model_checkDB();
 bool model_createDB();
 struct Student * model_loadStudents();
 bool model_writeStdents(struct Student *students, int numberOfStudents);
+int model_countStudents();
+bool model_addStudent(struct Student student);
 
 #endif

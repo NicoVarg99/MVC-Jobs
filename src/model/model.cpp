@@ -33,10 +33,10 @@ bool model_createDB(){
     return true;
 }
 
-struct Student * model_loadStudents(){
+int model_countStudents(){
     if(!model_checkDB()){ // se il file non esiste o non riesce ad aprirlo
         model_createDB();
-        return NULL;
+        return -1;
     }
     string fileName = "data";
     fileName+=SLASH;
@@ -48,6 +48,23 @@ struct Student * model_loadStudents(){
         file.read((char*)&n,sizeof(int));
         if(DEBUG) cout << "readed" << endl;
         if(DEBUG) cout << "Number of students:  " << n << endl;
+        return n;
+    }
+    return -1;
+}
+
+struct Student * model_loadStudents(){
+    if(!model_checkDB()){ // se il file non esiste o non riesce ad aprirlo
+        model_createDB();
+        return NULL;
+    }
+    string fileName = "data";
+    fileName+=SLASH;
+    fileName+="database.bin";
+    ifstream file(fileName.c_str(), ios::in | ios::binary);
+    if(file.is_open())
+    {
+        int n=model_countStudents();
         Student * students;
         students = new Student [n];
         for(int i=0;i<n;i++)
@@ -87,4 +104,22 @@ bool model_writeStdents(struct Student *students, int numberOfStudents)
     }
     file.close();
     return true;
+}
+
+bool model_addStudent(struct Student student){
+    int n = model_countStudents();
+    if(n==-1) return false;
+    Student *students = model_loadStudents();
+    if(students==NULL) return false;
+    Student *newStudents = new Student [n+1];
+    for (int i=0;i<n;i++)
+        newStudents[i]=students[i];
+    newStudents[n]=student;
+    n++;
+    if(model_writeStdents(newStudents,n)){
+        view_printDebug("Aggiunto correttamente");
+        return true;
+    }
+    view_printDebug("Errore nell'aggiunta");
+    return false;
 }
