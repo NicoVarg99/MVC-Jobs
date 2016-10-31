@@ -35,7 +35,8 @@ bool model_createDB(){
 
 int model_countStudents(){
     if(!model_checkDB()){ // se il file non esiste o non riesce ad aprirlo
-        model_createDB();
+	    if(model_createDB())
+		    return 0;
         return -1;
     }
     string fileName = "data";
