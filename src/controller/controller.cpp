@@ -55,8 +55,25 @@ void controller_start()
 					view_printError("Unable to open database");
 				}else{
 					//view_printStudentList(students);
-					view_printDebug("List of the students and their jobs:");
+					view_printDebug("List the students and their jobs:");
+					int numOfStudents=model_countStudents();
 
+					if(numOfStudents==0)
+						printf("The database is empty!\n");
+					else if(numOfStudents==-1)
+						view_printError("Unable to open database");
+					else{
+
+						printf("%d students in the database\n",numOfStudents);
+
+						for(int i=0;i<numOfStudents;i++){
+							
+							printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
+						
+						}
+					
+					}
+				
 				}
 				view_printDebug("Press [ENTER] to continue...\n");
 				WAIT;
