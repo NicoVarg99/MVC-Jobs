@@ -68,6 +68,7 @@ struct Student * model_loadStudents(){
         int n=model_countStudents();
         Student * students;
         students = new Student [n];
+        file.seekg(sizeof(int),file.beg); //sposta il cursore dopo l'intero che contiene il numero di studenti
         for(int i=0;i<n;i++)
         {
             file.read((char*)&students[i],sizeof(struct Student));
@@ -78,12 +79,6 @@ struct Student * model_loadStudents(){
             }
         }
         return students;
-    }
-    else
-    {
-        if(DEBUG)
-            cout << "Unable to open file:  " << fileName << endl;
-        return NULL;
     }
     file.close();
 }
