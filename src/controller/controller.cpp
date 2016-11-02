@@ -67,9 +67,8 @@ void controller_start()
 						printf("%d students in the database\n",numOfStudents);
 
 						for(int i=0;i<numOfStudents;i++){
-
+							view_printStudent(students[i],i+1); //prints one element
 							printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
-
 						}
 
 					}
