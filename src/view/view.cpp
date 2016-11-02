@@ -3,7 +3,7 @@
 #include <string>
 #include "view.h"
 
-#define LINEA "-------------------------------------------------------------------------------\n\n"
+#define LINEA "-------------------------------------------------------------------------------\n"
 #ifdef __linux__
     #define CLEAR "clear"
     #include "conio.cpp"
@@ -52,14 +52,14 @@ int view_mainMenu(){
 
 	while(1){
         system(CLEAR);
-        
+
 	if(DEBUG) printf("%d\n",c);
-        
-	printf(LINEA "\t\t\t\tMVC - Jobs");
+
+	printf(LINEA "\n\t\t\t\tMVC - Jobs");
         //printDebug("Hello!");
         //printError(3);
         printf("\n\n" LINEA);
-        printf("Si scelga l'azione da compiere:\n\n");
+        printf("\nSi scelga l'azione da compiere:\n\n");
         if(s==1) printf("<1>");
         else printf(" 1 ");
         printf(" - Stampare una lista di tutti gli studenti con i rispettivi lavori;\n");
@@ -87,7 +87,7 @@ int view_mainMenu(){
         if(c==KEY_W||c==KEY_LINUX_UP||c==KEY_CW||c==KEY_WINDOWS_DOWN) s--;
         if(c==KEY_WINDOWS_ENTER||c==KEY_LINUX_ENTER)return s;
 	if(c==KEY_LINUX_Q)return 6;
-        
+
 	//Loop through the menu
         if(s==7) s=1;
         if(s==0) s=6;
@@ -112,21 +112,57 @@ void view_printWaitMessage(){
     return;
 }
 
-void view_printStudent(Student student,int n){
+void view_printStudent(Student student){
 
-printf("--- Studente %d ---\n\n",n);
-printf("%s %s\n\n",student.firstName,student.lastName);
-printf("%d Lavori:\n\n",student.jobsNum);
+    printf(LINEA);
+    printf(LINEA);
+    printf("Nome:\t\t%s\nCognome:\t%s\n\n",student.firstName,student.lastName);
+    if(student.jobsNum)
+        printf("\t%d Lavori:\n\n",student.jobsNum);
+    else
+        printf("\tNessun lavoro assegnato al momento.\n");
+    for(int i=0;i<student.jobsNum;i++)
+    {
+        printf("\t\tLavoro #%d:\n",i+1);
+        printf("\t\t%s\n",student.job[i].name);
+        printf("\t\t%s\n",student.job[i].desc);
+        if(student.job[i].jobStatus==10) printf("\t\tLavoro assegnato, non iniziato.\n");
+        if(student.job[i].jobStatus==20) printf("\t\tLavoro assegnato, iniziato.\n");
+        if(student.job[i].jobStatus==30) printf("\t\tLavoro completato.\n");
+    }
 
-for(int i=0;i<student.jobsNum;i++)
-{
-    printf("Lavoro #%d:\n",i+1);
-    printf("%s\n",student.job[i].name);
-    printf("%s\n",student.job[i].desc);
-    if(student.job[i].jobStatus==10) printf("Lavoro assegnato, non iniziato.\n");
-    if(student.job[i].jobStatus==20) printf("Lavoro assegnato, iniziato.\n");
-    if(student.job[i].jobStatus==30) printf("Lavoro completato.\n");
+    printf(LINEA);
+    printf(LINEA);
+
 }
+
+
+void view_printStudentList(struct Student *students, int n){
+
+    view_clearScr();
+    printf(LINEA);
+    printf(LINEA);
+
+    for(int i=0; i<n; i++){
+        printf("\n\tStudente #%d\n",i+1);
+        printf("\n\tNome:\t\t%s\n\tCognome:\t%s\n",students[i].firstName,students[i].lastName);
+        if(students[i].jobsNum)
+            printf("\tLavori assegnati: %d\n",students[i].jobsNum);
+        else
+            printf("\tNessun lavoro assegnato al momento.\n");
+        for(int j=0;j<students[i].jobsNum;j++){
+            printf("\n\t\tLavoro #%d:\n",j+1);
+            printf("\t\t%s\n",students[i].job[j].name);
+            printf("\t\t%s\n",students[i].job[j].desc);
+            if(students[i].job[j].jobStatus==10) printf("\t\tLavoro assegnato, non iniziato.\n");
+            if(students[i].job[j].jobStatus==20) printf("\t\tLavoro assegnato, iniziato.\n");
+            if(students[i].job[j].jobStatus==30) printf("\t\tLavoro completato.\n");
+        }
+        printf("\n");
+        printf(LINEA);
+    }
+
+    printf(LINEA);
 
 }
 
@@ -153,4 +189,3 @@ struct Student view_loadStudent(){
 
 --WIP!--
 **/
-

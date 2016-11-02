@@ -66,16 +66,13 @@ void controller_start()
 
 						printf("%d students in the database\n",numOfStudents);
 
-						for(int i=0;i<numOfStudents;i++){
-							view_printStudent(students[i],i+1); //prints one element
-							//printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
-						}
+						view_printStudentList(students,numOfStudents);
+						//printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
 
 					}
 
 				}
-				view_printDebug("Press [ENTER] to continue...\n");
-				WAIT;
+				view_printWaitMessage();
 				break;
 			}
 			case 2:
@@ -83,9 +80,9 @@ void controller_start()
 				view_clearScr();
 
 				Student temp;
-				temp=view_loadStudent();
-				
-				
+				//temp=view_loadStudent();
+
+
 				WAIT;
 				break;
 			}
