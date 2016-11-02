@@ -68,7 +68,7 @@ void controller_start()
 
 						for(int i=0;i<numOfStudents;i++){
 							view_printStudent(students[i],i+1); //prints one element
-							printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
+							//printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
 						}
 
 					}
@@ -81,6 +81,11 @@ void controller_start()
 			case 2:
 			{
 				view_clearScr();
+
+				Student temp;
+				temp=view_loadStudent();
+				
+				
 				WAIT;
 				break;
 			}
