@@ -104,7 +104,7 @@ void view_printWaitMessage(){
     return;
 }
 
-void view_printStudent(Student student,int n){
+void view_printStudent(Student *student,int n){
 
 printf("--- Studente %d ---\n\n",n);
 printf("%s %s\n\n",student.firstName,student.lastName);
