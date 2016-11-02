@@ -103,3 +103,20 @@ void view_printWaitMessage(){
     }
     return;
 }
+
+void view_printStudent(Student student,int n){
+
+printf("--- Studente %d ---\n\n",n);
+printf("%s %s\n\n",student.firstName,student.lastName);
+printf("%d Lavori:\n\n",student.jobsNum);
+
+for(int i=0;i<student.jobsNum;i++)
+{
+    printf("Lavoro #%d:\n",i);
+    printf("%s\n",student.job.name);
+    printf("%s\n",student.job.desc);
+    if(student.job.jobStatus==10) printf("Lavoro assegnato, non iniziato.\n");
+    if(student.job.jobStatus==20) printf("Lavoro assegnato, iniziato.\n");
+    if(student.job.jobStatus==30) printf("Lavoro completato.\n");
+}
+
