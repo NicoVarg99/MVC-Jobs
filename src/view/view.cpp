@@ -129,3 +129,28 @@ for(int i=0;i<student.jobsNum;i++)
 }
 
 }
+
+/**
+
+struct Student view_loadStudent(){
+
+    struct Student{
+        char firstName[51];
+        char lastName[51];
+        int jobsNum; //Number of jobs of the Student
+        struct Job *job;
+
+}student;
+
+    printf("Nome dello studente:  ");
+    scanf("%s",&Student.firstName);
+    printf("\nCognome dello studente:  ");
+    scanf("%s",&Student.lastName);
+
+
+
+}
+
+--WIP!--
+**/
+
