@@ -14,16 +14,16 @@
 #endif
 
 //Keys definitions
-#define KEY_W		119
-#define KEY_CW      87
-#define KEY_S		115
-#define KEY_CS		83
+#define KEY_W	        	119
+#define KEY_CW                  87
+#define KEY_S	        	115
+#define KEY_CS	           	83
 #define KEY_LINUX_UP		65
-#define KEY_LINUX_DOWN	    66
+#define KEY_LINUX_DOWN	        66
 #define KEY_WINDOWS_UP		80
 #define KEY_WINDOWS_DOWN	72
-#define KEY_LINUX_ENTER	    10
-#define KEY_WINDOWS_ENTER   13
+#define KEY_LINUX_ENTER	        10
+#define KEY_WINDOWS_ENTER       13
 #define KEY_LINUX_ESCAPE	27
 #define KEY_LINUX_Q		113
 
@@ -195,6 +195,7 @@ struct Student view_loadStudent(){
     cin.getline(student.firstName,sizeof(student.firstName));
     cin.clear();
     while(cin.get()!='\n');
+
     printf(LINEA "Cognome dello studente[Massimo 50 caratteri!!!]:  ");
     cin.getline(student.lastName,sizeof(student.lastName));
     cin.clear();
