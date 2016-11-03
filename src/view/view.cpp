@@ -194,11 +194,11 @@ struct Student view_loadStudent(){
     printf(LINEA "Nome dello studente[Massimo 50 caratteri!!!]:  ");
     cin.getline(student.firstName,sizeof(student.firstName));
     cin.clear();
-    while(cin.get()!='\n');
+    if(strlen(student.firstName)==49) while(cin.get()!='\n');
     printf(LINEA "Cognome dello studente[Massimo 50 caratteri!!!]:  ");
     cin.getline(student.lastName,sizeof(student.lastName));
     cin.clear();
-    while(cin.get()!='\n');
+    if(strlen(student.lastName)==49) while(cin.get()!='\n');
     printf(LINEA "Nome inserito: %s %s\n" LINEA,student.firstName,student.lastName);
 
     return student;
