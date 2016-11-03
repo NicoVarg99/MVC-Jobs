@@ -106,6 +106,8 @@ void controller_start()
 					view_printWaitMessage();
 					break;
 				}
+				
+				model_removeStudent(todel-1);
 
 				//remove the student "todel"
 				view_printWaitMessage();
