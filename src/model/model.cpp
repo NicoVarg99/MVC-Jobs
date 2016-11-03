@@ -120,15 +120,11 @@ bool model_addStudent(struct Student student){
     return false;
 }
 
-bool model_removeStudent(int numberOfTheStudent){
-    int n=model_countStudents();
-    if(n==-1) return false;
-    Student *students = model_loadStudents();
-    if(students==NULL) return false;
-    n--;
-    for(int i=numberOfTheStudent;i<n;i++)
+bool model_removeStudent(Student * students, int numberOfTheStudent, int numberOfStudents){
+    numberOfStudents--;
+    for(int i=numberOfTheStudent;i<numberOfStudents;i++)
         students[i]=students[i+1];
-    if(model_writeStdents(students,n)){
+    if(model_writeStdents(students,numberOfStudents)){
         view_printDebug("Studente eliminato correttamente");
         return true;
     }
