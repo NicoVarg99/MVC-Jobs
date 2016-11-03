@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "${0%/*}" #Move working dir to script location
 rm -f Jobs
-echo -ne "Compiling... ($(find . -type f -exec cat {} + | wc -l) lines)\n"
+echo -ne "Compiling... ($(find . -type f -exec cat {} + |grep -v '.git' | wc -l) lines)\n"
 g++ src/main.cpp src/mvc.cpp -o Jobs
 #g++ lo rende eseguibile automaticamente
