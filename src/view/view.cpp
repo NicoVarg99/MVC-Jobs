@@ -30,7 +30,7 @@
 int view_mainMenu();
 void view_printError(const std::string topr);
 void view_printDebug(const std::string dastampare);
-void view_printMsg(char *topr);
+void view_printMsg(const std::string topr);
 void view_printWaitMessage();
 bool view_printStudent(struct Student * students);
 
@@ -42,8 +42,8 @@ void view_printError(const std::string topr){
 	printf("ERROR: %s\n",topr.c_str());
 }
 
-void view_printMsg(char *topr){
-	printf("%s\n",topr);
+void view_printMsg(const std::string topr){
+	printf("%s\n",topr.c_str());
 }
 
 int view_mainMenu(){
@@ -166,6 +166,8 @@ void view_printStudentList(struct Student *students, int n){
 
 }
 
+Student view_loadStudent(){
+    printf("\nQui c'e' la funzione che carica lo studente!\n");
 
 void view_printStudentListBasic(struct Student *students, int n){
 

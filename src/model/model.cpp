@@ -113,10 +113,10 @@ bool model_addStudent(struct Student student){
     newStudents[n]=student;
     n++;
     if(model_writeStdents(newStudents,n)){
-        view_printDebug("Aggiunto correttamente");
+        view_printDebug("Aggiunto correttamente\n");
         return true;
     }
-    view_printDebug("Errore nell'aggiunta");
+    view_printDebug("Errore nell'aggiunta\n");
     return false;
 }
 

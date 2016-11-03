@@ -83,11 +83,15 @@ void controller_start()
 			{
 				view_clearScr();
 
-				Student temp;
-				//temp=view_loadStudent();
+				Student temp=view_loadStudent();
 
+				if(model_addStudent(temp))
+					view_printMsg("Studente aggiunto con successo...");
+				else
+					view_printMsg("Errore sconosciuto nell'aggiunta dello studente alla lista...");
 
 				view_printWaitMessage();
+
 				break;
 			}
 			case 3:
