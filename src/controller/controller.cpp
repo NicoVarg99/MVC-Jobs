@@ -12,6 +12,10 @@ void controller_stop()
 
 void controller_start()
 {
+	int numOfStudents;
+	struct Student * students;
+	int c;
+	
 	//Create database if not exists
 	if(!model_checkDB())
 	{
@@ -28,7 +32,7 @@ void controller_start()
 		}
 	}
 
-	int c;
+	
 
 
 	//main loop
@@ -39,7 +43,17 @@ void controller_start()
 		if(DEBUG)
 			printf("Scelta: %d\n",c);
 
+		students=model_loadStudents();
 
+		if(students==NULL){
+			view_printError("Unable to open database");
+		}else{
+			//view_printStudentList(students);
+			view_printDebug("List the students and their jobs:");
+			numOfStudents=model_countStudents();
+		}
+
+						
 		//view_printMenu();
 		//view_printPrompt();
 		//c=view_xxx();
@@ -48,30 +62,20 @@ void controller_start()
 			//List all the students with their current job
 			case 1:
 			{
-				view_clearScr();
-
-				struct Student * students = model_loadStudents();
-				if(students==NULL){
-					view_printError("Unable to open database");
-				}else{
-					//view_printStudentList(students);
-					view_printDebug("List the students and their jobs:");
-					int numOfStudents=model_countStudents();
-
+				view_clearScr();	
+			
 					if(numOfStudents==0)
 						view_printError("The database is empty!\n");
 					else if(numOfStudents==-1)
 						view_printError("Unable to open database");
 					else{
-
-						printf("%d students in the database\n",numOfStudents);
-
+						//printf("%d students in the database\n",numOfStudents);
 						view_printStudentList(students,numOfStudents);
 						//printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
-
 					}
-
-				}
+						
+				
+				
 				view_printWaitMessage();
 				break;
 			}
@@ -83,25 +87,25 @@ void controller_start()
 				//temp=view_loadStudent();
 
 
-				WAIT;
+				view_printWaitMessage();
 				break;
 			}
 			case 3:
 			{
 				view_clearScr();
-				WAIT;
+				view_printWaitMessage();
 				break;
 			}
 			case 4:
 			{
 				view_clearScr();
-				WAIT;
+				view_printWaitMessage();
 				break;
 			}
 			case 5:
 			{
 				view_clearScr();
-				WAIT;
+				view_printWaitMessage();
 				break;
 			}
 
