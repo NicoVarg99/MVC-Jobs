@@ -64,22 +64,22 @@ int view_mainMenu(){
         printf("\nSi scelga l'azione da compiere:\n\n");
         if(s==1) printf("<1>");
         else printf(" 1 ");
-        printf(" - Stampare una lista di tutti gli studenti con i rispettivi lavori;\n");
+        printf(" - Stampare una lista di tutti gli studenti con i rispettivi lavori\n");
         if(s==2) printf("<2>");
         else printf(" 2 ");
-        printf(" - Aggiungere un nuovo studente alla lista;\n");
+        printf(" - Aggiungere un nuovo studente alla lista\n");
         if(s==3) printf("<3>");
         else printf(" 3 ");
-        printf(" - Rimuovere uno degli studenti dalla lista;\n");
+        printf(" - Rimuovere uno degli studenti dalla lista\n");
         if(s==4) printf("<4>");
         else printf(" 4 ");
-        printf(" - Modificare gli attributi di uno degli studenti sulla lista;\n");
+        printf(" - Modificare gli attributi di uno degli studenti sulla lista\n");
         if(s==5) printf("<5>");
         else printf(" 5 ");
-        printf(" - Assegna/modifica un lavoro di uno studente;\n");
+        printf(" - Assegna/modifica un lavoro di uno studente\n");
         if(s==6) printf("<6>");
         else printf(" 6 ");
-        printf(" - Termina il programma;\n");
+        printf(" - Termina il programma\n");
         printf("\n\t\t     [TASTI W-S PER SCEGLIERE L'OPZIONE]\n\n");
         c=getch();
 
@@ -192,11 +192,13 @@ struct Student view_loadStudent(){
     student.jobsNum=0;
     int e,a;
     printf(LINEA "Nome dello studente[Massimo 50 caratteri!!!]:  ");
-    fgets(student.firstName,sizeof(student.firstName),stdin);
-    student.firstName[strlen(student.firstName)-1]='\0';
+    cin.getline(student.firstName,sizeof(student.firstName));
+    cin.clear();
+    while(cin.get()!='\n');
     printf(LINEA "Cognome dello studente[Massimo 50 caratteri!!!]:  ");
-    fgets(student.lastName,sizeof(student.lastName),stdin);
-    student.firstName[strlen(student.firstName)-1]='\0';
+    cin.getline(student.lastName,sizeof(student.lastName));
+    cin.clear();
+    while(cin.get()!='\n');
     printf(LINEA "Nome inserito: %s %s\n" LINEA,student.firstName,student.lastName);
 
     return student;
