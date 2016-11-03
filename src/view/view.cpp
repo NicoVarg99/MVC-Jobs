@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <string>
 #include "view.h"
 
@@ -167,10 +168,6 @@ void view_printStudentList(struct Student *students, int n){
 
 }
 
-Student view_loadStudent(){
-    printf("\nQui c'e' la funzione che carica lo studente!\n");
-}
-
 void view_printStudentListBasic(struct Student *students, int n){
 
     view_clearScr();
@@ -194,12 +191,13 @@ struct Student view_loadStudent(){
     Student student;
     student.jobsNum=0;
     int e,a;
-    printf(LINEA"Nome dello studente[Massimo 50 caratteri!!!]:  ");
-    cin.getline(student.firstName,sizeof(student.firstName));
-    printf(LINEA"Cognome dello studente[Massimo 50 caratteri!!!]:  ");
-    cin.getline(student.lastName,sizeof(student.lastName));
-
-    printf(LINEA"Nome inserito: %s %s\n"LINEA,student.firstName,student.lastName);
+    printf(LINEA "Nome dello studente[Massimo 50 caratteri!!!]:  ");
+    fgets(student.firstName,sizeof(student.firstName),stdin);
+    student.firstName[strlen(student.firstName)-1]='\0';
+    printf(LINEA "Cognome dello studente[Massimo 50 caratteri!!!]:  ");
+    fgets(student.lastName,sizeof(student.lastName),stdin);
+    student.firstName[strlen(student.firstName)-1]='\0';
+    printf(LINEA "Nome inserito: %s %s\n" LINEA,student.firstName,student.lastName);
 
     return student;
 }
