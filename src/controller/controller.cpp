@@ -98,8 +98,18 @@ void controller_start()
 			{
 				view_clearScr();
 				view_printStudentListBasic(students,numOfStudents);
-				view_printMsg((char*)"Inserisci il numero dello studente da eliminare (q per annullare)\n");
+				view_printMsg((char*)"Inserisci il numero dello studente da eliminare (0 per annullare)\n");
 
+				int todel=view_readInt();
+
+				if(todel==0)
+				{
+					view_printMsg((char*)"Annullato.");
+					view_printWaitMessage();
+					break;
+				}
+
+				//remove the student "todel"
 				view_printWaitMessage();
 				break;
 			}

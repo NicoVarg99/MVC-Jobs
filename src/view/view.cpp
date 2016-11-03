@@ -103,7 +103,7 @@ printf("Debug: %s\n",dastampare.c_str());
 void view_printWaitMessage(){
 
     int i;
-    printf("\nPress [ENTER] to continue...\n\n");
+    printf("\nPremi [INVIO] per continuare...\n\n");
     while(1)
     {
         i=getch();
@@ -179,10 +179,14 @@ void view_printStudentListBasic(struct Student *students, int n){
         printf("%s %s\n",students[i].firstName,students[i].lastName);
 
 	}
-
-
 }
 
+int view_readInt(){
+	int num;
+	scanf("%d",&num);
+	getchar(); //clear buffer
+	return num;
+}
 /**
 
 struct Student view_loadStudent(){
