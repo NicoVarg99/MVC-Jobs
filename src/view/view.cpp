@@ -33,6 +33,7 @@ void view_printDebug(const std::string dastampare);
 void view_printMsg(const std::string topr);
 void view_printWaitMessage();
 bool view_printStudent(struct Student * students);
+struct Student view_loadStudent();
 
 void view_clearScr(){
 	system(CLEAR);
@@ -187,26 +188,18 @@ int view_readInt(){
 	getchar(); //clear buffer
 	return num;
 }
-/**
 
 struct Student view_loadStudent(){
 
-    struct Student{
-        char firstName[51];
-        char lastName[51];
-        int jobsNum; //Number of jobs of the Student
-        struct Job *job;
+    Student student;
+    student.jobsNum=0;
+    int e,a;
+    printf(LINEA"Nome dello studente[Massimo 50 caratteri!!!]:  ");
+    cin.getline(student.firstName,sizeof(student.firstName));
+    printf(LINEA"Cognome dello studente[Massimo 50 caratteri!!!]:  ");
+    cin.getline(student.lastName,sizeof(student.lastName));
 
-}student;
+    printf(LINEA"Nome inserito: %s %s\n"LINEA,student.firstName,student.lastName);
 
-    printf("Nome dello studente:  ");
-    scanf("%s",&Student.firstName);
-    printf("\nCognome dello studente:  ");
-    scanf("%s",&Student.lastName);
-
-
-
+    return student;
 }
-
---WIP!--
-**/
