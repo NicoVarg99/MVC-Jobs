@@ -107,7 +107,14 @@ void controller_start()
 					break;
 				}
 				
-				model_removeStudent(todel-1);
+				if(todel>numOfStudents)
+				{
+					view_printError("Lo studente non è nella lista.");
+					view_printWaitMessage();
+					break;
+				}
+				
+				model_removeStudent(students,todel-1,numOfStudents);
 
 				//remove the student "todel"
 				view_printWaitMessage();
