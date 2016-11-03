@@ -65,17 +65,15 @@ void controller_start()
 				view_clearScr();	
 			
 					if(numOfStudents==0)
-						view_printError("The database is empty!\n");
+						view_printError("Il database è vuoto!\n");
 					else if(numOfStudents==-1)
-						view_printError("Unable to open database");
+						view_printError("Impossibile aprire il database.");
 					else{
 						//printf("%d students in the database\n",numOfStudents);
 						view_printStudentList(students,numOfStudents);
 						//printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
 					}
 						
-				
-				
 				view_printWaitMessage();
 				break;
 			}
