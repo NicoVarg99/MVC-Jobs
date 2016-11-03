@@ -15,7 +15,7 @@ void controller_start()
 	int numOfStudents;
 	struct Student * students;
 	int c;
-	
+
 	//Create database if not exists
 	if(!model_checkDB())
 	{
@@ -32,7 +32,7 @@ void controller_start()
 		}
 	}
 
-	
+
 
 
 	//main loop
@@ -53,7 +53,7 @@ void controller_start()
 			numOfStudents=model_countStudents();
 		}
 
-						
+
 		//view_printMenu();
 		//view_printPrompt();
 		//c=view_xxx();
@@ -62,8 +62,8 @@ void controller_start()
 			//List all the students with their current job
 			case 1:
 			{
-				view_clearScr();	
-			
+				view_clearScr();
+
 					if(numOfStudents==0)
 						view_printError("The database is empty!\n");
 					else if(numOfStudents==-1)
@@ -73,9 +73,9 @@ void controller_start()
 						view_printStudentList(students,numOfStudents);
 						//printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
 					}
-						
-				
-				
+
+
+
 				view_printWaitMessage();
 				break;
 			}
@@ -99,7 +99,7 @@ void controller_start()
 				view_clearScr();
 				view_printStudentListBasic(students,numOfStudents);
 				view_printMsg((char*)"Inserisci il numero dello studente da eliminare (q per annullare)\n");
-				
+
 				view_printWaitMessage();
 				break;
 			}
@@ -124,10 +124,12 @@ void controller_start()
 				break;
 			}
 			default:
+			{
 				//TODO MIRCO
 				//print an error message
 				//view_error("Please enter a number from 1 to 4");
 				break;
+			}
 		}
 
 	}

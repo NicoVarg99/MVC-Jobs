@@ -168,6 +168,7 @@ void view_printStudentList(struct Student *students, int n){
 
 Student view_loadStudent(){
     printf("\nQui c'e' la funzione che carica lo studente!\n");
+}
 
 void view_printStudentListBasic(struct Student *students, int n){
 
@@ -176,10 +177,10 @@ void view_printStudentListBasic(struct Student *students, int n){
     for(int i=0; i<n; i++){
         printf("%d\t",i+1);
         printf("%s %s\n",students[i].firstName,students[i].lastName);
-    
+
 	}
-        
-        
+
+
 }
 
 /**
