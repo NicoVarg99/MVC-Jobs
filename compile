@@ -1,6 +1,39 @@
 #!/bin/bash
 cd "${0%/*}" #Move working dir to script location
 rm -f Jobs
-echo -ne "Compiling... ($(find . -type f -exec cat {} + |grep -v '.git' | wc -l) lines)\n"
+
+function countcpp(){
+    total_count=0
+    for file in $(find . -type f -name "*.cpp" -print|grep -v ".git")
+    do  
+         count=`wc -l $file | cut -f1 -d' '`
+         total_count=$(( $total_count + $count ))
+    done    
+    echo "[CPP Files] - $total_count lines"
+}
+
+function counth(){
+    total_count=0
+    for file in $(find . -type f -name "*.h" -print|grep -v ".git")
+    do  
+         count=`wc -l $file | cut -f1 -d' '`
+         total_count=$(( $total_count + $count ))
+    done
+    echo "[H Files] - $total_count lines"
+}
+
+total_count=0
+for file in $(find . -type f -name "*" -print|grep -v ".git")
+do
+    count=`wc -l $file | cut -f1 -d' '`
+    total_count=$(( $total_count + $count ))
+done
+
+echo -ne "Compiling... ($total_count lines)\n"
+
+countcpp
+counth
+
+
 g++ src/main.cpp src/mvc.cpp -o Jobs
 #g++ lo rende eseguibile automaticamente
