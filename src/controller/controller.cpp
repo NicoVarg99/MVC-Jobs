@@ -93,6 +93,9 @@ void controller_start()
 			case 3:
 			{
 				view_clearScr();
+				view_printStudentListBasic(students,numOfStudents);
+				view_printMsg((char*)"Inserisci il numero dello studente da eliminare (q per annullare)\n");
+				
 				view_printWaitMessage();
 				break;
 			}
