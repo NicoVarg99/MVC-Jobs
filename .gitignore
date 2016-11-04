@@ -2,4 +2,4 @@
 Jobs
 
 # Ignore the students database
-database.bin
+data/database.bin
