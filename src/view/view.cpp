@@ -99,7 +99,8 @@ int view_mainMenu(){
 }
 
 void view_printDebug(const std::string dastampare){
-printf("Debug: %s\n",dastampare.c_str());
+	if(DEBUG)
+		printf("Debug: %s\n",dastampare.c_str());
 }
 
 void view_printWaitMessage(){
