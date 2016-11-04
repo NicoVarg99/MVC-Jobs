@@ -86,7 +86,7 @@ int view_mainMenu(){
         if(c==KEY_S||c==KEY_LINUX_DOWN||c==KEY_CS||c==KEY_WINDOWS_UP) s++;
         if(c==KEY_W||c==KEY_LINUX_UP||c==KEY_CW||c==KEY_WINDOWS_DOWN) s--;
         if(c==KEY_WINDOWS_ENTER||c==KEY_LINUX_ENTER)return s;
-	if(c==KEY_LINUX_Q)return 6;
+	if(c==KEY_LINUX_Q)return 5;
 
 	//Loop through the menu
         if(s==6) s=1;
