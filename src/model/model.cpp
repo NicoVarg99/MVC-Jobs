@@ -129,7 +129,7 @@ bool model_addJob(struct Job job, int numberOfTheStudent){
     Job *newJobs = new Job [students[numberOfTheStudent].jobsNum];
     for (int i=0;i<students[numberOfTheStudent].jobsNum-1;i++)
         newJobs[i]=students[numberOfTheStudent].job[i];
-    newJobs[i]=job;
+    newJobs[students[numberOfTheStudent].jobsNum-1]=job;
     if(model_writeStdents(students,n)){
         view_printDebug("Aggiunto correttamente\n");
         return true;
