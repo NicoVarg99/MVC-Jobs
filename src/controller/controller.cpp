@@ -145,6 +145,12 @@ void controller_start()
                                 view_printMsg((char*)"Inserisci il numero dello studente di cui modificare o assegnare un lavoro (0 per annullare)\n");
 
 				int tomod=view_readInt();
+
+				if(tomod==0){
+					view_printWaitMessage();
+					break;
+				}
+
 				int s;
 
 				if(students[tomod-1].jobsNum){
