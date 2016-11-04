@@ -74,12 +74,9 @@ int view_mainMenu(){
         printf(" - Rimuovere uno degli studenti dalla lista\n");
         if(s==4) printf("<4>");
         else printf(" 4 ");
-        printf(" - Modificare gli attributi di uno degli studenti sulla lista\n");
+        printf(" - Assegna/modifica un lavoro di uno studente\n");
         if(s==5) printf("<5>");
         else printf(" 5 ");
-        printf(" - Assegna/modifica un lavoro di uno studente\n");
-        if(s==6) printf("<6>");
-        else printf(" 6 ");
         printf(" - Termina il programma\n");
         printf("\n\t\t     [TASTI W-S PER SCEGLIERE L'OPZIONE]\n\n");
         c=getch();
@@ -92,8 +89,8 @@ int view_mainMenu(){
 	if(c==KEY_LINUX_Q)return 6;
 
 	//Loop through the menu
-        if(s==7) s=1;
-        if(s==0) s=6;
+        if(s==6) s=1;
+        if(s==0) s=5;
 
         continue;
     }
