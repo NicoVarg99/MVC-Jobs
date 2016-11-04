@@ -190,11 +190,11 @@ struct Student view_loadStudent(){
     Student student;
     student.jobsNum=0;
     int e,a;
-    printf(LINEA "Nome dello studente [Massimo 50 caratteri!!!]:  ");
+    printf(LINEA "Nome dello studente:  ");
     cin.getline(student.firstName,sizeof(student.firstName));
     cin.clear();
     if(strlen(student.firstName)==49) while(cin.get()!='\n');
-    printf(LINEA "Cognome dello studente [Massimo 50 caratteri!!!]:  ");
+    printf(LINEA "Cognome dello studente:  ");
     cin.getline(student.lastName,sizeof(student.lastName));
     cin.clear();
     if(strlen(student.lastName)==49) while(cin.get()!='\n');

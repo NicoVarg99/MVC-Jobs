@@ -117,14 +117,14 @@ void controller_start()
 					view_printWaitMessage();
 					break;
 				}
-				
+
 				if(todel>numOfStudents)
 				{
 					view_printError("Lo studente non è nella lista.");
 					view_printWaitMessage();
 					break;
 				}
-				
+
 				model_removeStudent(students,todel-1,numOfStudents);
 
 				//remove the student "todel"
@@ -141,6 +141,28 @@ void controller_start()
 					break;
 				}
 
+				view_printStudentListBasic(students,numOfStudents);
+                                view_printMsg((char*)"Inserisci il numero dello studente di cui modificare o assegnare un lavoro (0 per annullare)\n");
+
+				int tomod=view_readInt();
+				int s;
+
+				if(students[tomod-1].jobsNum){
+					s=view_workAssignmentSel(); //ask whether to add a new job or modify an existing one.
+				}else{
+					s=1;//add a new job
+				}
+
+				struct tempJob;
+
+				if(s==1){
+					//add a new job
+					tempJob=view_loadJob();
+					model_addJob(tempJob,tomod-1);
+				}else if(s==2){
+					//modify an existing job
+					//
+				}
 
 				view_printWaitMessage();
 				break;
