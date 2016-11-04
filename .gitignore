@@ -1,2 +1,5 @@
 # Ignore compiled source
 Jobs
+
+# Ignore the students database
+database.bin
