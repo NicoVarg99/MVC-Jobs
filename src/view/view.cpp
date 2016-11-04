@@ -234,28 +234,37 @@ int view_workAssignmentSel(){
 }
 
 
+
 struct Job view_loadJob(){
 
     Job job;
-
-    printf(LINEA "Nome del lavoro:  ");
+	int a;
+    printf(LINEA " Nome del lavoro:  ");
     cin.getline(job.name,sizeof(job.name));
     cin.clear();
     if(strlen(job.name)==49) while(std::cin.get()!='\n');
-    printf(LINEA "Breve descrizione del lavoro:  ");
+    printf(LINEA " Breve descrizione del lavoro:  ");
     cin.getline(job.desc,sizeof(job.desc));
     cin.clear();
     if(strlen(job.desc)==999) while(std::cin.get()!='\n');
-    int a;
-    printf("Stato del lavoro:\n1=Lavoro assegnato\n2=Lavoro iniziato.");
+    printf(LINEA " Stato del lavoro:\n\n 1=Lavoro assegnato\n\n 2=Lavoro iniziato.\n\n Scelta:  ");
     scanf("%d",&a);
     if(a!=1 && a!=2) do{
-		printf("Errore: valore non valido.");
+		printf("\n Errore: valore non valido.");
 		scanf("%d",&a);
 	}
 	while(a!=1 && a!=2);
 	if(a==1) job.jobStatus=10;
     if(a==2) job.jobStatus=20;
-
+    printf(LINEA);
+    printf(" Nome: %s\n",job.name);
+    printf(" Descrizione: %s\n",job.desc);
+    printf(" Stato lavoro: ");
+    if(a==1) printf(" Assegnato.\n");
+    if(a==2) printf(" Iniziato.\n");
+    printf(LINEA);
+    view_printWaitMessage();
+	
     return job;
 }
+
