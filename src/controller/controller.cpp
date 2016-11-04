@@ -73,7 +73,7 @@ void controller_start()
 						view_printStudentList(students,numOfStudents);
 						//printf("Student %d/%d - %s\n",i,numOfStudents,students[i].firstName);
 					}
-					
+
 				view_printWaitMessage();
 				break;
 			}
@@ -95,6 +95,17 @@ void controller_start()
 			case 3:
 			{
 				view_clearScr();
+
+
+                                if(numOfStudents==0){
+                                        view_printError("Nessuno studente nel database!");
+                                        view_printWaitMessage();
+                                        break;
+                                }
+
+
+
+
 				view_printStudentListBasic(students,numOfStudents);
 				view_printMsg((char*)"Inserisci il numero dello studente da eliminare (0 per annullare)\n");
 
@@ -123,18 +134,20 @@ void controller_start()
 			case 4:
 			{
 				view_clearScr();
-				view_printWaitMessage();
-				break;
-			}
-			case 5:
-			{
-				view_clearScr();
+
+				if(numOfStudents==0){
+					view_printError("Nessuno studente nel database!");
+					view_printWaitMessage();
+					break;
+				}
+
+
 				view_printWaitMessage();
 				break;
 			}
 
 			//quit
-			case 6:
+			case 5:
 			{
 				view_clearScr();
 				exit(0);
