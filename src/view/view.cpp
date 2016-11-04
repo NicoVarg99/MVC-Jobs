@@ -237,7 +237,7 @@ int view_workAssignmentSel(){
 struct Job view_loadJob(){
 
     Job job;
-   
+
     printf(LINEA "Nome del lavoro:  ");
     cin.getline(job.name,sizeof(job.name));
     cin.clear();
@@ -246,6 +246,7 @@ struct Job view_loadJob(){
     cin.getline(job.desc,sizeof(job.desc));
     cin.clear();
     if(strlen(job.desc)==999) while(std::cin.get()!='\n');
+    int a;
     printf("Stato del lavoro:\n1=Lavoro assegnato\n2=Lavoro iniziato.");
     scanf("%d",&a);
     if(a!=1 && a!=2) do{
@@ -255,7 +256,6 @@ struct Job view_loadJob(){
 	while(a!=1 && a!=2);
 	if(a==1) job.jobStatus=10;
     if(a==2) job.jobStatus=20;
-	
+
     return job;
 }
-
