@@ -153,7 +153,7 @@ void controller_start()
 					s=1;//add a new job
 				}
 
-				struct tempJob;
+				struct Job tempJob;
 
 				if(s==1){
 					//add a new job
