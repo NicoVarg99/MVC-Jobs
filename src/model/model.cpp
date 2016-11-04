@@ -120,6 +120,24 @@ bool model_addStudent(struct Student student){
     return false;
 }
 
+bool model_addJob(struct Job job, int numberOfTheStudent){
+    int n = model_countStudents();
+    if(n==-1) return false;
+    Student *students = model_loadStudents();
+    if(students==NULL) return false;
+    students[numberOfTheStudent].jobsNum++;
+    Job *newJobs = new Job [students[numberOfTheStudent].jobsNum];
+    for (int i=0;i<students[numberOfTheStudent].jobsNum-1;i++)
+        newJobs[i]=students[numberOfTheStudent].job[i];
+    newJobs[i]=job;
+    if(model_writeStdents(students,n)){
+        view_printDebug("Aggiunto correttamente\n");
+        return true;
+    }
+    view_printDebug("Errore nell'aggiunta\n");
+    return false;
+}
+
 bool model_removeStudent(Student * students, int numberOfTheStudent, int numberOfStudents){
     numberOfStudents--;
     for(int i=numberOfTheStudent;i<numberOfStudents;i++)
