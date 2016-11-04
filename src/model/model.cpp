@@ -139,6 +139,20 @@ bool model_addJob(struct Job job, int numberOfTheStudent){
     return false;
 }
 
+bool model_editJob(Job job, int numberOfTheStudent, int numberOfTheJob){
+    int n = model_countStudents();
+    if(n==-1) return false;
+    Student *students = model_loadStudents();
+    if(students==NULL) return false;
+    students[numberOfTheStudent].job[numberOfTheJob]=job;
+    if(model_writeStdents(students,n)){
+        view_printDebug("Modificato correttamente\n");
+        return true;
+    }
+    view_printDebug("Errore nella modifica del lavoro\n");
+    return false;
+}
+
 bool model_removeStudent(Student * students, int numberOfTheStudent, int numberOfStudents){
     numberOfStudents--;
     for(int i=numberOfTheStudent;i<numberOfStudents;i++)
