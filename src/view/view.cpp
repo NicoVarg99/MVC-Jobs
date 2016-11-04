@@ -167,22 +167,18 @@ void view_printStudentList(struct Student *students, int n){
 
 }
 
-void view_printStudentListBasic(struct Student *students, int n){
+void view_printJobListBasic(struct Job *jobs, int n){
 
     view_clearScr();
 
     for(int i=0; i<n; i++){
         printf("%d\t",i+1);
-        printf("%s %s\n",students[i].firstName,students[i].lastName);
+        printf("Nome: %s\n Desc:%s\n Status: ",jobs[i].name,jobs[i].desc);
+        if(jobs[i].jobStatus==10) printf("Assigned\n");
+        if(jobs[i].jobStatus==20) printf("Started\n");
+        if(jobs[i].jobStatus==30) printf("Done\n");
 
 	}
-}
-
-int view_readInt(){
-	int num;
-	scanf("%d",&num);
-	getchar(); //clear buffer
-	return num;
 }
 
 struct Student view_loadStudent(){
