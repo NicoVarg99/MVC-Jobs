@@ -35,6 +35,7 @@ void view_printMsg(const std::string topr);
 void view_printWaitMessage();
 bool view_printStudent(struct Student * students);
 struct Student view_loadStudent();
+int view_workAssignmentSel();
 
 void view_clearScr(){
 	system(CLEAR);
@@ -204,3 +205,34 @@ struct Student view_loadStudent(){
 
     return student;
 }
+
+int view_workAssignmentSel(){
+
+	int a=1,b=1;
+
+	while(1){
+
+        printf(LINEA);
+		printf("   Si vuole assegnare o modificare un lavoro? \n\n");
+		if(b==1) printf("   <1>");
+		else printf("    1 ");
+		printf(" - Assegnare un lavoro\n");
+		if(b==2) printf("   <2>");
+		else printf("    2 ");
+		printf(" - Modificare un lavoro\n");
+		if(b==3) printf("   <3>");
+		else printf("    3 ");
+		printf(" - Annulla e torna al menu principale\n");
+		printf(LINEA);
+		a=getch();
+		if(a==KEY_S||a==KEY_LINUX_DOWN||a==KEY_CS||a==KEY_WINDOWS_UP) b++;
+		if(a==KEY_W||a==KEY_LINUX_UP||a==KEY_CW||a==KEY_WINDOWS_DOWN) b--;
+		if(b==4) b=1;
+		if(b==0) b=3;
+		if(a==KEY_WINDOWS_ENTER||a==KEY_LINUX_ENTER)break;
+		if(a==KEY_LINUX_Q)return 6;
+        system(CLEAR);
+	}
+	return b;
+}
+
