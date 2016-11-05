@@ -231,7 +231,7 @@ int view_workAssignmentSel(){
 
 
 
-void view_printJobListBasic(struct Student *, int n){
+void view_printJobListBasic(struct Student *student, int n){
 
     printf(LINEA);
     printf(LINEA);
@@ -277,7 +277,6 @@ struct Job view_loadJob(){
 	if(a==1) job.jobStatus=10;
     if(a==2) job.jobStatus=20;
     printf(LINEA);
-	
+
     return job;
 }
-

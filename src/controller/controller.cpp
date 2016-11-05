@@ -118,7 +118,7 @@ void controller_start()
 					break;
 				}
 
-				if(todel>numOfStudents)
+				if(todel>numOfStudents||todel<0)
 				{
 					view_printError("Lo studente non è nella lista.");
 					view_printWaitMessage();
