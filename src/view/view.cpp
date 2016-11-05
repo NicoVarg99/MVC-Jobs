@@ -231,30 +231,6 @@ int view_workAssignmentSel(){
 
 
 
-void view_printJobListBasic(struct Student *student, int n){
-
-    printf(LINEA);
-    printf(LINEA);
-    printf("Nome:\t\t%s\nCognome:\t%s\n\n",student.firstName,student.lastName);
-    if(student.jobsNum)
-        printf("\t%d Lavori:\n\n",student.jobsNum);
-    else
-        printf("\tNessun lavoro assegnato al momento.\n");
-    for(int i=0;i<student.jobsNum;i++)
-    {
-        printf("\t\tLavoro #%d:\n",i+1);
-        printf("\t\t%s\n",student.job[i].name);
-        printf("\t\t%s\n",student.job[i].desc);
-        if(student.job[i].jobStatus==10) printf("\t\tLavoro assegnato, non iniziato.\n");
-        if(student.job[i].jobStatus==20) printf("\t\tLavoro assegnato, iniziato.\n");
-        if(student.job[i].jobStatus==30) printf("\t\tLavoro completato.\n");
-    }
-
-    printf(LINEA);
-    printf(LINEA);
-
-}
-
 struct Job view_loadJob(){
 
     Job job;
