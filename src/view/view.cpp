@@ -287,3 +287,16 @@ int view_readInt(){
     getchar();
     return num;
 }
+
+
+void view_printStudentListBasic(struct Student *students, int n){
+
+    view_clearScr();
+
+    for(int i=0; i<n; i++){
+        printf("%d\t",i+1);
+        printf("%s %s\n",students[i].firstName,students[i].lastName);
+
+    }
+}
+
