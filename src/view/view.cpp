@@ -280,3 +280,10 @@ struct Job view_loadJob(){
 
     return job;
 }
+
+int view_readInt(){
+    int num;
+    scanf("%d",&num);
+    getchar();
+    return num;
+}

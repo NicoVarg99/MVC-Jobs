@@ -168,7 +168,7 @@ void controller_start()
 				}else if(s==2){
 					//modify an existing job
 					int jobNum; //get this from view
-					view_printjobListBasic(student[tomod-1].jobs,jobNum-1);
+					view_printJobListBasic(students[tomod-1].job,jobNum-1);
 					jobNum=view_readInt();
 					model_editJob(tempJob,tomod-1,jobNum-1);
 				}
