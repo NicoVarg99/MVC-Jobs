@@ -167,7 +167,10 @@ void controller_start()
 					model_addJob(tempJob,tomod-1);
 				}else if(s==2){
 					//modify an existing job
-					//
+					int jobNum; //get this from view
+					view_printjobListBasic(student[tomod-1].jobs,jobNum-1);
+					jobNum=view_readInt();
+					model_editJob(tempJob,tomod-1,jobNum-1);
 				}
 
 				view_printWaitMessage();

@@ -167,22 +167,18 @@ void view_printStudentList(struct Student *students, int n){
 
 }
 
-void view_printStudentListBasic(struct Student *students, int n){
+void view_printJobListBasic(struct Job *jobs, int n){
 
     view_clearScr();
 
     for(int i=0; i<n; i++){
         printf("%d\t",i+1);
-        printf("%s %s\n",students[i].firstName,students[i].lastName);
+        printf("Nome: %s\n Desc:%s\n Status: ",jobs[i].name,jobs[i].desc);
+        if(jobs[i].jobStatus==10) printf("Assigned\n");
+        if(jobs[i].jobStatus==20) printf("Started\n");
+        if(jobs[i].jobStatus==30) printf("Done\n");
 
 	}
-}
-
-int view_readInt(){
-	int num;
-	scanf("%d",&num);
-	getchar(); //clear buffer
-	return num;
 }
 
 struct Student view_loadStudent(){
@@ -235,11 +231,35 @@ int view_workAssignmentSel(){
 
 
 
+void view_printJobListBasic(struct Student *, int n){
+
+    printf(LINEA);
+    printf(LINEA);
+    printf("Nome:\t\t%s\nCognome:\t%s\n\n",student.firstName,student.lastName);
+    if(student.jobsNum)
+        printf("\t%d Lavori:\n\n",student.jobsNum);
+    else
+        printf("\tNessun lavoro assegnato al momento.\n");
+    for(int i=0;i<student.jobsNum;i++)
+    {
+        printf("\t\tLavoro #%d:\n",i+1);
+        printf("\t\t%s\n",student.job[i].name);
+        printf("\t\t%s\n",student.job[i].desc);
+        if(student.job[i].jobStatus==10) printf("\t\tLavoro assegnato, non iniziato.\n");
+        if(student.job[i].jobStatus==20) printf("\t\tLavoro assegnato, iniziato.\n");
+        if(student.job[i].jobStatus==30) printf("\t\tLavoro completato.\n");
+    }
+
+    printf(LINEA);
+    printf(LINEA);
+
+}
+
 struct Job view_loadJob(){
 
     Job job;
 	int a;
-    printf(LINEA " Nome del lavoro:  ");
+    printf(" Nome del lavoro:  ");
     cin.getline(job.name,sizeof(job.name));
     cin.clear();
     if(strlen(job.name)==49) while(std::cin.get()!='\n');
@@ -257,13 +277,6 @@ struct Job view_loadJob(){
 	if(a==1) job.jobStatus=10;
     if(a==2) job.jobStatus=20;
     printf(LINEA);
-    printf(" Nome: %s\n",job.name);
-    printf(" Descrizione: %s\n",job.desc);
-    printf(" Stato lavoro: ");
-    if(a==1) printf(" Assegnato.\n");
-    if(a==2) printf(" Iniziato.\n");
-    printf(LINEA);
-    view_printWaitMessage();
 	
     return job;
 }
